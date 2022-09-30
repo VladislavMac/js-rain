@@ -1,0 +1,26 @@
+$drop : rgba(172, 230, 245, 0.5);
+$backgorund : rgb(1, 8, 17);
+
+*{
+    box-sizing: border-box;
+    margin: 0;padding: 0;
+    cursor: none;
+}
+
+body,html{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body{
+    background-color: $backgorund;
+    display: flex;
+}
+
+#drop{
+    background-color: $drop;
+    border-radius: 50%;
+    position: relative;
+    transition: 2s;
+}
