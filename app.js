@@ -1,43 +1,17 @@
 const body = document.querySelector('body');
 
-function getDropRandomWidth(){
-    const width = Math.random() * (0.3 - 0.2) + 0.2;
-    return width + 'vw';
-}
-
-function getDropRandomHeight(){
-    const height = Math.floor(Math.random() * (15 - 5)) + 5;
-    return height + 'vh';
-}
-
-function getDropRandomX(){
-    const x = Math.floor(Math.random() * (80 - (-50))) + (-50);
-    return x + 'vw';
-}
-
-function getDropRandomY(){
-    const y = Math.floor(Math.random() * (1500 - 50)) + 50;
-    return `-${y}vh`
-}
-
-function getNewDrop(){
-    const drop = document.createElement('div');
-          drop.id = 'drop';
-    return drop;
-}
-
 function startFall(drop){
     drop.style.top = '200vh';
 }
 
 function makeDrop(){
     for( let i = 0; i < 30; i++ ){
-        let drop = getNewDrop();
+        let drop = new Drop();
         let dropSettings = {
-            width : getDropRandomWidth(),
-            height : getDropRandomHeight(),
-            x : getDropRandomX(),
-            y : getDropRandomY()
+            width : drop.width(),
+            height : drop.height(),
+            x : drop.x(),
+            y : drop.y()
         }
     
         drop.style.width  = dropSettings.width;
@@ -51,7 +25,7 @@ function makeDrop(){
             setTimeout(() => {
                 drop.remove()
             }, 3500)
-        }, 50)
+        }, 1000)
     }
 }
 
